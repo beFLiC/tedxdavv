@@ -1,22 +1,45 @@
-import React from "react";
-import '../index.css';
-// import { Tween, Timeline } from 'react-gsap';
-// import { gsap } from 'gsap';
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Hero() {
+
+  const tedxLogoRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      ScrollTrigger: {
+        trigger: tedxLogoRef.current,
+        scrub: true,
+        start: 'top center',
+        end: 'bottom center',
+      },
+    });
+
+    tl.to(tedxLogoRef.current, {
+      y: '-100%',
+    });
+  }, []);
+
+
     return (
         <div>
             {/* mobile */}
+            <div class="scrollDist"></div>
             <div className="pl-[5%] h-screen w-screen bg-[url('https://i.imgur.com/15kLXCo.jpg')] bg-contain block sm:hidden">
                 {/* <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={2} ease="power1.out"> */}
                 {/* <img src="https://i.imgur.com/15kLXCo.jpg" alt="" className="w-full h-auto bg-clip overflow-clip absolute" /> */}
                 <div className="flex justify-center">
-                    <img src="https://i.imgur.com/sNLtX0F.png" alt="tedx-davv-logo" className="w-48 h-48 bottom-10 relative" />
+                <img
+                        id="tedxdavv"
+                        ref={tedxLogoRef}
+                        src="https://i.imgur.com/sNLtX0F.png"
+                        alt="tedx-davv-logo" className="w-48 h-48 bottom-10 relative" />
                 </div>
                 <div className="">
                     <img src="https://i.imgur.com/ud5pNJs.png" alt="Planet" className="relative left-[-82px] top-[-6rem] h-40" />
                 </div>
-                <img src="https://i.imgur.com/iEkwjMj.png" alt="Clouds" className="relative w-auto h-64 left-[120px] bottom-36 scale-150 overflow-hidden" />
+                <img src="https://i.imgur.com/iEkwjMj.png" alt="Clouds" className="relative w-full h-64 left-[120px] bottom-36 scale-150 overflow-hidden" />
                 <div className="flex w-screen justify-center">
                     <img src="https://i.imgur.com/ZAg3b4l.png" alt="Plane" className="relative h-24 left-[60px] bottom-[420px] scale-[150%]" />
                 </div>
@@ -30,11 +53,16 @@ function Hero() {
             </div>
 
             {/* desktop */}
+            <div class="scrollDist"></div>
             <div className="pl-[5%] h-screen w-screen bg-[url('https://i.imgur.com/15kLXCo.jpg')] bg-contain hidden sm:block">
                 {/* <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={2} ease="power1.out"> */}
                 {/* <img src="https://i.imgur.com/15kLXCo.jpg" alt="" className="w-full h-auto bg-clip overflow-clip absolute" /> */}
                 <div className="flex justify-center">
-                    <img src="https://i.imgur.com/sNLtX0F.png" alt="tedx-davv-logo" className="w-48 h-48 top-[8rem] relative scale-[280%]" />
+                <img
+                    id="tedxdavv"
+                    ref={tedxLogoRef}
+                    src="https://i.imgur.com/sNLtX0F.png"
+                    alt="tedx-davv-logo" className="w-48 h-48 top-[8rem] relative scale-[280%]" />
                 </div>
                 <div className="">
                     <img src="https://i.imgur.com/ud5pNJs.png" alt="Planet" className="relative left-[66rem] top-[-10rem] h-24" />
