@@ -1,9 +1,11 @@
-import Loader from './pages/Loader'
+import logo from './logo.svg';
+import './App.css';
+import M from './components/main-page';
 
 function App() {
   return (
-    <div className='App'>
-      <Loader/>
+    <div className="App">
+        <M/>
     </div>
   );
 }
