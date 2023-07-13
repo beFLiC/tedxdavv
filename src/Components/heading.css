@@ -1,0 +1,43 @@
+.app__heading{
+    display: flex;
+    align-items:flex-start;
+    justify-content: right;
+    padding: 1rem;
+}
+.title{
+    text-transform:uppercase;
+    letter-spacing: 0;
+    font-weight: bold;
+    font-size: 4vw;
+}
+.subtext{
+    font-size: 1.2vw;
+    text-transform:uppercase;
+    padding: 1.2vw 0.5vw;
+}
+@media screen and (max-width:1150px) {
+    .app__heading{
+        padding: 0.5vw;
+        align-items:flex-start;
+    }
+    .title{
+        font-size: 55pt;
+    }
+    .subtext{
+        font-size: 20pt;
+        padding: 3vw 1.5vw;
+    }
+}
+@media screen and (max-width:650px) {
+    .app__heading{
+        padding: 0.5vw;
+        align-items:flex-start;
+    }
+    .title{
+        font-size: 30pt;
+    }
+    .subtext{
+        font-size: 10pt;
+        padding: 3vw 1.5vw;
+    }
+}
